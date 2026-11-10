@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#cbd8e5">
+  <title>GearHub — периферия для твоего сетапа</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Lilita+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#" data-page="home" aria-label="GearHub — главная">GearHub</a>
+    <nav class="top-nav">
+      <a href="#" data-page="home" class="nav-link active">main</a>
+      <a href="#" data-page="catalog" class="nav-link">catalog</a>
+      <a href="#" data-page="deals" class="nav-link">sale <span>🔥</span></a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="accountBtn" aria-label="Личный кабинет" title="Личный кабинет">♙</button>
+      <button class="icon-btn cart-head" id="cartBtn" aria-label="Корзина" title="Корзина">bag <span id="cartCount">0</span></button>
+      <button class="login-link" id="loginBtn">log in</button>
+    </div>
+  </header>
+
+  <main id="app">
+    <section class="page active" id="homePage">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">YOUR SETUP STARTS HERE</p>
+          <h1>Your Setup.<br> Your Rules.</h1>
+          <p class="hero-sub">Периферия, которая меняет ощущения от каждого нажатия.</p>
+          <button class="black-btn" data-page="catalog">explore catalog <span>↗</span></button>
+        </div>
+        <div class="hero-art">
+          <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+          <img src="https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=1000&q=85" alt="Механическая клавиатура">
+          <span class="sticker sticker-top">NEW<br>DROP</span>
+          <span class="sticker sticker-bottom">GEAR<br>UP!</span>
+        </div>
+        <div class="hero-index">GH — 001 / 2026</div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading"><div><p class="eyebrow">PICK YOUR SIDE</p><h2>categories<span>.</span></h2></div><a href="#" data-page="catalog" class="text-link">all products ↗</a></div>
+        <div class="category-grid">
+          <button class="category-tile cat-keyboard" data-category="Клавиатуры"><span>01 / typing</span><strong>keyboards</strong><b>↗</b></button>
+          <button class="category-tile cat-mouse" data-category="Мыши"><span>02 / aiming</span><strong>mice</strong><b>↗</b></button>
+          <button class="category-tile cat-audio" data-category="Наушники"><span>03 / sound</span><strong>audio</strong><b>↗</b></button>
+          <button class="category-tile cat-other" data-category="Мониторы"><span>04 / vision</span><strong>monitors</strong><b>↗</b></button>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading"><div><p class="eyebrow">JUST LANDED</p><h2>new arrivals<span>.</span></h2></div><a href="#" data-page="catalog" class="text-link">view all ↗</a></div>
+        <div class="product-grid" id="homeProducts"></div>
+      </section>
+
+      <section class="promo-strip"><div><p class="eyebrow">GEARHUB SELECTION</p><h2>Build a setup<br>you love.</h2></div><p>От первой клавиши до последнего пикселя.<br>Подбирай своё, играй по-своему.</p><button class="outline-btn" data-page="catalog">find your gear ↗</button></section>
+
+      <section class="section-block reviews-section">
+        <div class="section-heading"><div><p class="eyebrow">REAL PEOPLE / REAL SETUPS</p><h2>feedback<span>.</span></h2></div><span class="review-note">your opinion matters</span></div>
+        <div class="review-grid" id="homeReviews"></div>
+      </section>
+    </section>
+
+    <section class="page" id="catalogPage">
+      <div class="catalog-layout">
+        <aside class="catalog-sidebar">
+          <div class="sidebar-title">search <span>:</span></div>
+          <input id="searchInput" class="search-input" placeholder="найти товар..." type="search">
+          <div class="filter-group"><h3>categories</h3><label><input type="radio" name="category" value="all" checked> all products</label><label><input type="radio" name="category" value="Клавиатуры"> keyboards</label><label><input type="radio" name="category" value="Мыши"> mice</label><label><input type="radio" name="category" value="Наушники"> audio</label><label><input type="radio" name="category" value="Мониторы"> monitors</label><label><input type="radio" name="category" value="Микрофоны"> microphones</label><label><input type="radio" name="category" value="Коврики"> mousepads</label><label><input type="radio" name="category" value="Аксессуары"> accessories</label></div>
+          <div class="filter-group"><h3>price, ₸</h3><div class="price-inputs"><input id="minPrice" type="number" placeholder="от"><input id="maxPrice" type="number" placeholder="до"></div><button class="small-action" id="applyPrice">apply ↗</button></div>
+          <label class="sale-check"><input id="saleOnly" type="checkbox"> only sale</label>
+          <button class="reset-btn" id="resetFilters">reset filters ↺</button>
+        </aside>
+        <div class="catalog-content">
+          <div class="catalog-top"><div><p class="eyebrow">FIND YOUR NEXT UPGRADE</p><h1>catalog<span>.</span></h1></div><select id="sortSelect"><option value="featured">sort: featured</option><option value="priceAsc">price: low to high</option><option value="priceDesc">price: high to low</option><option value="newest">newest first</option></select></div>
+          <div class="catalog-banner"><span>GEARHUB / DROP 2026</span><strong>Upgrade<br>your game<span>_</span></strong><small>NEW SEASON — NEW GEAR</small></div>
+          <div class="catalog-meta"><span id="resultCount">0 products</span><span>prices in KZT · Astana</span></div>
+          <div class="product-grid catalog-products" id="catalogProducts"></div>
+          <div class="empty-state hidden" id="emptyState">ничего не найдено. попробуй изменить фильтры.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="dealsPage">
+      <div class="simple-page-head"><p class="eyebrow">LIMITED OFFERS</p><h1>sale<span>.</span></h1><p>Хороший момент обновить свой сетап.</p></div>
+      <div class="product-grid" id="saleProducts"></div>
+    </section>
+
+    <section class="page" id="accountPage">
+      <div class="account-head"><div><p class="eyebrow">YOUR GEARHUB SPACE</p><h1>account<span>.</span></h1></div><button class="outline-btn" id="logoutBtn">log out ↗</button></div>
+      <div class="account-grid">
+        <section class="panel account-data"><h2>data</h2><form id="profileForm"><label>name<input id="profileName" required placeholder="Your name"></label><label>telephone<input id="profilePhone" placeholder="+7 7__ ___ __ __"></label><label>address<textarea id="profileAddress" rows="3" placeholder="Город, улица, дом, квартира"></textarea></label><button class="blue-btn">save</button></form><div class="account-role" id="accountRole"></div></section>
+        <section class="panel"><h2>delivery</h2><p class="panel-caption">current delivery</p><div class="delivery-panel" id="deliveryPanel"><div class="delivery-empty"><strong>Пока нет активных доставок</strong><p>После оформления заказа здесь появятся статус и детали доставки.</p></div></div></section>
+      </div>
+      <section class="panel history-panel"><h2>history</h2><div id="orderHistory" class="history-list">The order history is currently empty...</div></section>
+      <section class="panel admin-panel hidden" id="adminPanel">
+        <div class="admin-heading"><div><p class="eyebrow">CONTROL ROOM</p><h2>admin panel<span>.</span></h2></div><span class="admin-pill">ADMIN ACCESS</span></div>
+        <div class="admin-stats" id="adminStats"></div>
+        <div class="admin-columns">
+          <form class="admin-form" id="productForm"><h3 id="productFormTitle">add product +</h3><input type="hidden" id="editProductId"><label>product name<input id="pName" required placeholder="Product name"></label><label>category<select id="pCategory"><option>Клавиатуры</option><option>Мыши</option><option>Наушники</option><option>Мониторы</option><option>Микрофоны</option><option>Коврики</option><option>Аксессуары</option></select></label><div class="form-row"><label>price, ₸<input id="pPrice" type="number" min="1" required></label><label>old price, ₸<input id="pOldPrice" type="number" min="0"></label></div><label>image URL<input id="pImage" placeholder="https://..."></label><label>or upload product photo<input id="pImageFile" type="file" accept="image/png,image/jpeg,image/webp"></label><label>short description<textarea id="pDescription" rows="2"></textarea></label><label>specifications<textarea id="pSpecs" rows="3" placeholder="Например: 8000 Hz, 54 г, USB-C"></textarea></label><div class="form-row"><label>badge<input id="pBadge" placeholder="NEW / HIT"></label><label>stock<input id="pStock" type="number" min="0" value="10"></label></div><button class="blue-btn">save product</button><button type="button" class="reset-btn hidden" id="cancelEdit">cancel edit</button></form>
+          <div class="admin-products-wrap"><h3>products management</h3><div class="admin-product-list" id="adminProductList"></div></div>
+        </div>
+        <div class="admin-orders"><h3>orders</h3><div id="adminOrderList">Пока заказов нет.</div></div>
+        <div class="admin-reviews"><h3>reviews moderation</h3><div id="adminReviewList"></div></div>
+        <div class="admin-users"><div class="admin-subheading"><h3>user access</h3><span>grant / revoke admin rights</span></div><p class="admin-users-hint">Выдавай права только тем, кому доверяешь. Смена собственной роли заблокирована.</p><div id="adminUserList" class="admin-user-list">Загрузка пользователей...</div></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="footer-logo" href="#" data-page="home">GearHub</a><span>GEAR FOR YOUR EVERYDAY PLAY.</span><span>© 2026 GEARHUB / ASTANA</span></footer>
+
+  <div class="overlay hidden" id="modalOverlay">
+    <div class="modal" id="modalBox"><button class="modal-close" id="modalClose">×</button><div id="modalContent"></div></div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
